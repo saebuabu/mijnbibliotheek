@@ -2,16 +2,65 @@ const express = require('express');
 const app     = express();
 const PORT    = 3000;
 
-// Stap 2: Een route maken
-// Wanneer iemand naar "/" gaat, stuur je "Hello World!" terug
+app.use(express.static('public'));
+
 app.get('/', (req, res) => {
-    res.send('<h1>Hello World! 👋</h1><p>Mijn eerste server werkt!</p>');
+    res.send(`
+          <!DOCTYPE html>
+    <html lang="nl">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Mijn Bibliotheek</title>
+      <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+      <header class="app-header">
+        <h1>📚 Mijn Bibliotheek</h1>
+        <nav class="hoofd-nav">
+          <a href="/" class="actief">🏠 Home</a>
+          <a href="/dashboard">📊 Dashboard</a>
+        </nav>
+      </header>
+      <main>
+        <h2>Welkom!</h2>
+        <p>Dit is de homepagina.</p>
+      </main>
+      <script src="/js/app.js" defer></script>
+    </body>
+    </html>
+        `);
 });
 
 
-app.get('/overons', (req, res) => {
-    res.send('<h1>Over Ons</h1><p>Dit is de over ons pagina!</p>');
-});
+app.get('/dashboard', (req, res) => {
+    res.send(`
+    <!DOCTYPE html>
+    <html lang="nl">
+    <head>
+      <meta charset="UTF-8">
+      <title>Dashboard – Mijn Bibliotheek</title>
+      <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+      <header class="app-header">
+        <h1>📚 Mijn Bibliotheek</h1>
+        <nav class="hoofd-nav">
+          <a href="/">🏠 Home</a>
+          <a href="/dashboard" class="actief">📊 Dashboard</a>
+        </nav>
+      </header>
+      <main>
+        <h2>Dashboard</h2>
+        <p>Hier komt later jouw data.</p>
+      </main>
+      <script src="/js/app.js" defer></script>
+    </body>
+    </html>
+        `);
+    });
+
+        
 
 
 // Stap 3: Server starten
