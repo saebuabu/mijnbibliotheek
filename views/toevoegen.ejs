@@ -1,6 +1,19 @@
 <%- include('partials/header') %>
-  <main>
-    <h2><%= title %> boek aan mijn bibliotheek</h2>
-   
-  </main>
+<main>
+  <section>
+  <h2><%= title %> boek aan mijn bibliotheek</h2>
+  <form id="boek-form">
+    <label for="titel">Titel</label>
+    <input type="text" id="titel" name="titel" required />
+
+    <label for="genre">Genre</label>
+    <select id="genre" name="genre">
+      <option value="roman">Roman</option>
+      <option value="non-fictie">Non-fictie</option>
+    </select>
+
+    <button id="btn" type="submit">Opslaan</button>
+  </form>
+  </section>
+</main>
 <%- include('partials/footer') %>

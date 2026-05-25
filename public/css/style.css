@@ -10,3 +10,29 @@ a {
     color: #007BFF;
     text-decoration: none;
 }   
+
+/* voeg styling toe voor een formulier, links uitlijnen */
+form {
+    max-width: 400px;
+    /* links uitlijnen */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* voeg styling toe voor input velden */
+input[type="text"], input[type="submit"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}   
+/* voeg styling toe voor submit knop */
+button[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}   
