@@ -19,6 +19,16 @@ app.get('/toevoegen', (req, res) => {
    res.render('toevoegen', { title: 'Toevoegen', appNaam: 'Mijn Bibliotheek' });
 });
 
+const boeken = [
+    { id: 1, titel: 'De Hobbit', auteur: 'J.R.R. Tolkien', genre: 'Fantasy' },
+    { id: 2, titel: '1984', auteur: 'George Orwell', genre: 'Dystopie' },
+    { id: 3, titel: 'Pride and Prejudice', auteur: 'Jane Austen', genre: 'Romantiek' }
+];
+
+app.get('/api/boeken', (req, res) => {
+  res.json(boeken); // stuurt de array terug als JSON
+});
+
 // Stap 3: Server starten
 app.listen(PORT, () => {
     console.log(`✅ Server draait op http://localhost:${PORT}`);

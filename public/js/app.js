@@ -21,3 +21,5 @@ const genre = document.querySelector('#genre');
 genre.addEventListener('change', () => {
     console.log(`Geselecteerd genre: ${genre.value}`);
 });
+
+
