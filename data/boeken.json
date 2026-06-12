@@ -1,0 +1,5 @@
+[
+  { "id": 1, "titel": "De Hobbit", "auteur": "J.R.R. Tolkien", "genre": "Fantasy" },
+  { "id": 2, "titel": "1984", "auteur": "George Orwell", "genre": "Dystopie" },
+  { "id": 3, "titel": "Pride and Prejudice", "auteur": "Jane Austen", "genre": "Romantiek" }
+]

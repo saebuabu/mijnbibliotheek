@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toevoegen | Mijn Bibliotheek</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/localstorage.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <h1>🌿 Mijn Bibliotheek</h1>
+    <div id="naam">Anoniem</div>
+    <nav class="hoofd-nav">
+      <a href="/index.html">🏠 Home</a>
+      <a href="/dashboard.html">📊 Dashboard</a>
+      <a href="/toevoegen.html">➕ Toevoegen</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Toevoegen boek aan mijn bibliotheek</h2>
+      <form id="boek-form">
+        <label for="titel">Titel</label>
+        <input type="text" id="titel" name="titel" required />
+
+        <label for="schrijver">Schrijver</label>
+        <input type="text" id="schrijver" name="schrijver" required />
+
+        <label for="genre">Genre</label>
+        <select id="genre" name="genre">
+          <option value="roman">Roman</option>
+          <option value="non-fictie">Non-fictie</option>
+          <option value="fictie">Fictie</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="science-fiction">Science Fiction</option>
+          <option value="biografie">Biografie</option>
+        </select>
+
+        <button id="add-book-btn" type="submit">Opslaan</button>
+      </form>
+      <article id="boek-lijst"></article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Mijn Bibliotheek. Alle rechten voorbehouden.</p>
+  </footer>
+
+  <script src="/js/app.js" defer></script>
+  <script src="/js/localstoragecrd.js" defer></script>
+</body>
+</html>
