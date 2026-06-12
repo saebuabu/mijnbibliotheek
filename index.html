@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Mijn Bibliotheek</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/localstorage.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <h1>🌿 Mijn Bibliotheek</h1>
+    <div id="naam">Anoniem</div>
+    <nav class="hoofd-nav">
+      <a href="/index.html">🏠 Home</a>
+      <a href="/dashboard.html">📊 Dashboard</a>
+      <a href="/toevoegen.html">➕ Toevoegen</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Welkom op Home - Mijn Bibliotheek</h2>
+    <p>Dit is de homepagina van Mijn Bibliotheek. Hier vind je een overzicht van onze bibliotheek en de nieuwste toevoegingen.</p>
+    <ul id="boeken-lijst"></ul>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Mijn Bibliotheek. Alle rechten voorbehouden.</p>
+  </footer>
+
+  <script src="/js/fetchapi.js" defer></script>
+</body>
+</html>
