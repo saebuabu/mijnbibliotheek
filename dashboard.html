@@ -22,6 +22,7 @@
 
   <main>
     <h2>Dashboard</h2>
+    <p>Aantal gelezen boeken: <strong id="aantal-boeken">0</strong></p>
   </main>
 
   <footer>
@@ -31,6 +32,8 @@
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');
     }
+    const boeken = JSON.parse(localStorage.getItem('mijn-boeken')) || [];
+    document.getElementById('aantal-boeken').textContent = boeken.length;
   </script>
 </body>
 </html>
