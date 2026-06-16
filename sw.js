@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bibliotheek-v1';
+const CACHE_NAME = 'bibliotheek-v3';
 const URLS_TO_CACHE = [
   '/index.html',
   '/dashboard.html',

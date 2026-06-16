@@ -12,6 +12,15 @@ naam.addEventListener('click', () => {
     }
 });
 
+// Index pagina: boekenlijst tonen
+const boekenLijst = document.getElementById('boeken-lijst');
+if (boekenLijst) {
+    const boeken = JSON.parse(localStorage.getItem('mijn-boeken')) || [];
+    boekenLijst.innerHTML = boeken.map(boek =>
+        `<li><strong>${boek.titel}</strong> — ${boek.auteur}</li>`
+    ).join('');
+}
+
 // Dashboard: aantal boeken
 const aantalBoeken = document.getElementById('aantal-boeken');
 if (aantalBoeken) {
