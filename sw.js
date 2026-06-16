@@ -6,8 +6,7 @@ const URLS_TO_CACHE = [
   '/css/style.css',
   '/js/localstorage.js',
   '/js/localstoragecrd.js',
-  '/js/app.js',
-  '/js/fetchapi.js'
+  '/js/app.js'
 ];
 
 self.addEventListener('install', (event) => {
