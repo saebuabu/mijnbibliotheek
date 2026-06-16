@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bibliotheek-v3';
+const CACHE_NAME = 'bibliotheek-v4';
 const URLS_TO_CACHE = [
   '/index.html',
   '/dashboard.html',
@@ -22,7 +22,15 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((cached) => cached || fetch(event.request))
-  );
+  if (event.request.destination === 'document') {
+    // HTML altijd van het netwerk ophalen, cache als fallback
+    event.respondWith(
+      fetch(event.request).catch(() => caches.match(event.request))
+    );
+  } else {
+    // CSS/JS uit cache, netwerk als fallback
+    event.respondWith(
+      caches.match(event.request).then((cached) => cached || fetch(event.request))
+    );
+  }
 });
