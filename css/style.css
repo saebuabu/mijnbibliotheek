@@ -51,6 +51,18 @@ button[type="submit"] {
     cursor: pointer;
     padding: 10px 20px;
 }
+#boeken-lijst {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+#boeken-lijst li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 /* element met id naam krijgt een underline */
 #naam {
     text-decoration: underline;
