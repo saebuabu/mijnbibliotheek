@@ -4,8 +4,6 @@ const URLS_TO_CACHE = [
   '/dashboard.html',
   '/toevoegen.html',
   '/css/style.css',
-  '/js/localstorage.js',
-  '/js/localstoragecrd.js',
   '/js/app.js'
 ];
 

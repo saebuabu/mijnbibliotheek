@@ -1,16 +1,57 @@
-console.log('app.js is geladen!');
-// eerste stap: elementen selecteren
-const titel = document.querySelector('#titel');
-const genre = document.querySelector('#genre');
-const schrijver = document.querySelector('#schrijver');
-//voorbeeld input event listener, toont het aantal ingevoerde tekens in het titel veld
-titel.addEventListener('input', () => {
-    console.log(`Aantal tekens in titel: ${titel.value.length}`);
+// Naam in header (alle pagina's)
+const naam = document.getElementById('naam');
+const opgeslagenNaam = localStorage.getItem('naam');
+if (opgeslagenNaam) {
+    naam.textContent = opgeslagenNaam;
+}
+naam.addEventListener('click', () => {
+    const nieuweNaam = prompt('Voer je naam in:');
+    if (nieuweNaam) {
+        localStorage.setItem('naam', nieuweNaam);
+        naam.textContent = nieuweNaam;
+    }
 });
 
-//voorbeeld  change event listener van de select, toont de geselecteerde waarde
-genre.addEventListener('change', () => {
-    console.log(`Geselecteerd genre: ${genre.value}`);
-});
+// Dashboard: aantal boeken
+const aantalBoeken = document.getElementById('aantal-boeken');
+if (aantalBoeken) {
+    const boeken = JSON.parse(localStorage.getItem('mijn-boeken')) || [];
+    aantalBoeken.textContent = boeken.length;
+}
 
+// Toevoegen pagina
+const titel = document.getElementById('titel');
+const genre = document.getElementById('genre');
+const btn = document.getElementById('add-book-btn');
 
+if (titel) {
+    titel.addEventListener('input', () => {
+        console.log(`Aantal tekens in titel: ${titel.value.length}`);
+    });
+}
+
+if (genre) {
+    genre.addEventListener('change', () => {
+        console.log(`Geselecteerd genre: ${genre.value}`);
+    });
+}
+
+if (btn) {
+    const mijnBoeken = JSON.parse(localStorage.getItem('mijn-boeken')) || [];
+    btn.addEventListener('click', function(event) {
+        event.preventDefault();
+        const nieuwBoek = {
+            id: Date.now(),
+            titel: document.getElementById('titel').value,
+            auteur: document.getElementById('schrijver').value,
+            genre: document.getElementById('genre').value
+        };
+        mijnBoeken.push(nieuwBoek);
+        localStorage.setItem('mijn-boeken', JSON.stringify(mijnBoeken));
+        document.getElementById('titel').value = '';
+        document.getElementById('schrijver').value = '';
+        document.getElementById('genre').value = '';
+        console.log('Boek opgeslagen:', nieuwBoek);
+        console.log('Huidige boeken in localStorage:', mijnBoeken);
+    });
+}

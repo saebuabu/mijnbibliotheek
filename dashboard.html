@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#2d6a4f">
-  <script src="/js/localstorage.js" defer></script>
+  <script src="/js/app.js" defer></script>
 </head>
 <body>
   <header class="app-header">
@@ -32,8 +32,6 @@
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');
     }
-    const boeken = JSON.parse(localStorage.getItem('mijn-boeken')) || [];
-    document.getElementById('aantal-boeken').textContent = boeken.length;
   </script>
 </body>
 </html>
