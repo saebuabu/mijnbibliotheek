@@ -1,3 +1,4 @@
+//verander de naam van de cache bij iedere wijziging van de bestanden, zodat de oude cache wordt verwijderd en de nieuwe wordt gebruikt
 const CACHE_NAME = 'bibliotheek-v5';
 const URLS_TO_CACHE = [
   '/index.html',
@@ -6,7 +7,9 @@ const URLS_TO_CACHE = [
   '/css/style.css',
   '/js/app.js'
 ];
-
+// Service Worker installatie en activatie 
+// uitleg de claim() functie: https://developer.mozilla.org/en-US/docs/Web/API/Clients/claim
+// uitleg de skipWaiting() functie: https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/skipWaiting
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(URLS_TO_CACHE))
