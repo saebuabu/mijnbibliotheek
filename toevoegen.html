@@ -21,7 +21,7 @@
 
   <main>
     <section>
-      <h2>Toevoegen boek aan mijn bibliotheek</h2>
+      <h2>Toevoegen boek aan mijn bibliotheek</h2> 
       <form id="boek-form">
         <label for="titel">Titel</label>
         <input type="text" id="titel" name="titel" required />
@@ -38,6 +38,11 @@
           <option value="science-fiction">Science Fiction</option>
           <option value="biografie">Biografie</option>
         </select>
+
+        <label>
+          <input type="checkbox" id="gelezen" name="gelezen" />
+          Gelezen
+        </label>
 
         <button id="add-book-btn" type="submit">Opslaan</button>
       </form>

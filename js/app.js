@@ -21,12 +21,19 @@ if (boekenLijst) {
         const boeken = JSON.parse(localStorage.getItem('mijn-boeken')) || [];
 
         //maak de lijst van boeken in HTML en de delete-knop voor elk boek bevat een data-id attribuut met de id van het boek, zodat we weten welk boek we moeten verwijderen
-        boekenLijst.innerHTML = boeken.map(boek =>
-            `<li data-id="${boek.id}"><strong>${boek.titel}</strong> — ${boek.auteur} <button class="delete-btn" data-id="${boek.id}">🗑️</button></li>`
+        const tbody = boekenLijst.querySelector('tbody');
+        tbody.innerHTML = boeken.map(boek =>
+            `<tr data-id="${boek.id}">
+                <td><strong>${boek.titel}</strong></td>
+                <td>${boek.auteur}</td>
+                <td>${boek.genre}</td>
+                <td>${boek.gelezen ? '✅' : '❌'}</td>
+                <td><button class="delete-btn" data-id="${boek.id}">🗑️</button></td>
+            </tr>`
         ).join('');
 
         // Voeg event listeners toe aan de delete-knoppen
-        boekenLijst.querySelectorAll('.delete-btn').forEach(knop => {
+        tbody.querySelectorAll('.delete-btn').forEach(knop => {
             knop.addEventListener('click', () => {
                 const id = Number(knop.dataset.id);
                 const boeken = JSON.parse(localStorage.getItem('mijn-boeken')) || [];
@@ -72,13 +79,15 @@ if (btn) {
             id: Date.now(),
             titel: document.getElementById('titel').value,
             auteur: document.getElementById('schrijver').value,
-            genre: document.getElementById('genre').value
+            genre: document.getElementById('genre').value,
+            gelezen: document.getElementById('gelezen').checked
         };
         mijnBoeken.push(nieuwBoek);
         localStorage.setItem('mijn-boeken', JSON.stringify(mijnBoeken));
         document.getElementById('titel').value = '';
         document.getElementById('schrijver').value = '';
         document.getElementById('genre').value = '';
+        document.getElementById('gelezen').checked = false;
         console.log('Boek opgeslagen:', nieuwBoek);
         console.log('Huidige boeken in localStorage:', mijnBoeken);
     });
